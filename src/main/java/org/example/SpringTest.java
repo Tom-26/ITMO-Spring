@@ -7,9 +7,17 @@ public class SpringTest {
                 "applicationContext.xml"
         );
 
-        MusicPlayer player = context.getBean(MusicPlayer.class);
-        player.playGenrePlaylist(MusicGenre.ROCK);
-
+        MusicPlayer player = context.getBean("musicPlayer", MusicPlayer.class);
+        System.out.println(player.getName());
+        System.out.println(player.getVolume());
+        //prototype
+        JazzMusic jazzMusic1 = context.getBean("jazzMusic", JazzMusic.class);
+        JazzMusic jazzMusic2 = context.getBean("jazzMusic", JazzMusic.class);
+        //singletole
+        RockMusic rockMusic1 = context.getBean("rockMusic", RockMusic.class);
+        RockMusic rockMusic2 = context.getBean("rockMusic", RockMusic.class);
+        System.out.println(jazzMusic1==jazzMusic2); //false
+        System.out.println(rockMusic1==rockMusic2); //true
 
 
 //        Computer computer= context.getBean("computer", Computer.class);

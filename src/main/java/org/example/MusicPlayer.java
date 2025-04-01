@@ -4,6 +4,7 @@ import org.example.MusicGenre;
 import org.example.PlayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -13,6 +14,18 @@ import java.util.Map;
 @Component
 public class MusicPlayer {
     private final Map<MusicGenre, PlayList> genrePlayListMap;
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
 
     @Autowired
     public MusicPlayer(

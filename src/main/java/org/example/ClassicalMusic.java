@@ -16,4 +16,8 @@ public class ClassicalMusic implements Music, PlayList {
     public List<String> playlistPlay() {
         return List.of("Chelkunchik"+"Lebedinoe ozero"+"ABBA");
     }
+
+    public void doMyInit() {
+        System.out.println("Init works!");
+    }
 }
